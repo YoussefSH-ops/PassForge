@@ -8,11 +8,27 @@ def get_input():
 
 def create_variations(inputs):
     variants = []
+    leetspeak = {
+    "a": "@",
+    "e": "3",
+    "o": "0",
+    "s": "$",
+    "i": "1",
+    "t": "7"
+}
     for w in inputs:
+        new_word = ""
         if w:
             variants.append(w.lower())
             variants.append(w.upper())
             variants.append(w.capitalize())
+            for char in w:
+                if char in leetspeak:
+                    new_word += leetspeak[char]
+                else:
+                    new_word += char
+            variants.append(new_word)
+
     return list(set(variants))
 
 def read_config(filename):
@@ -70,7 +86,9 @@ def processing(variants, numbers, symbols):
                     p3 = sym + w1 + number + w2
                     p4 = w2 + sym + w1 + number
                     p5 = w1 + w2 + number + sym
-                    for p in (p1,p2,p3,p4,p5):
+                    p6 = w1 + sym +  number
+                    p7 = w1 + number + sym
+                    for p in (p1,p2,p3,p4,p5,p6,p7):
                         if 8 <= len(p) <= 20:
                             passwords.add(p)
     return passwords
