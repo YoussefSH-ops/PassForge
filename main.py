@@ -1,5 +1,3 @@
-import random
-
 def get_input():
     first_name = str(input("Enter the target's name: ")).strip()
     nickname = str(input("Enter the target's nickname: ")).strip()
