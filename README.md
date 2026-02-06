@@ -20,6 +20,7 @@ This program is for authorized testing only!
 Example:
 
 numbers = 1, 2, 07, 123
+
 symbols = !, @, #, $, %
 
 # Usage
